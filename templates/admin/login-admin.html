@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin - Login{% endblock %}
+{% block content %}
+  <div class="container">
+		<div class="row justify-content-center align-items-center" style="height: 90vh;">
+			<div class="col-md-4">
+				<div class="login-form">
+					<h2 class="logo-text">Admin - Login</h2>
+					  <div class="form-floating mb-3">
+						  <input type="text" class="form-control" id="inputName" placeholder="Enter your name" name="nama">
+						  <label for="floatingInput">Username</label>
+					  </div>
+					  <div class="form-floating mb-3">
+						  <input type="password" class="form-control" id="inputPass" placeholder="Enter your NIK number" name="nik">
+						  <label for="floatingInput">Password</label>
+					  </div>
+					  <button type="submit" class="btn btn-secondary login-btn d-block mx-auto" onclick="logAdmin()">Login</button>
+				</div>
+			</div>
+		</div>
+	  </div>
+{% endblock %}

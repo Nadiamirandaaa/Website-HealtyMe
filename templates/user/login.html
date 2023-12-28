@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}HealtyMe - Login{% endblock %}
+{% block content %}
+	<div class="container">
+		<div class="row justify-content-center align-items-center" style="height: 90vh;">
+			<div class="col-md-4">
+				<div class="login-form">
+					<h2 class="logo-text">HealtyMe - Login</h2>
+					  <div class="form-floating mb-3">
+						  <input type="text" class="form-control" id="inputName" placeholder="Enter your name" oninput="this.value = this.value.toUpperCase()" name="nama">
+						  <label for="floatingInput">Name</label>
+					  </div>
+					  <div class="form-floating mb-3">
+						  <input type="password" class="form-control" id="inputNIK" placeholder="Enter your NIK number" name="nik">
+						  <label for="floatingInput">NIK</label>
+					  </div>
+					  <button type="submit" class="btn btn-secondary login-btn d-block mx-auto" onclick="login()">Login</button>
+					  <p class="text-center mt-3">Belum Punya Akun? <a href="/register" class="register-link">Daftar Sekarang</a></p>
+				</div>
+			</div>
+		</div>
+	  </div>
+{% endblock %}

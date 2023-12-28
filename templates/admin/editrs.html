@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}HealtyMe - Admin{% endblock %}
+
+{% block content %}
+
+<!-- Start Hero -->
+<div class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="intro-excerpt">
+                    <h3>HealtyMe</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Hero -->
+
+<!-- Start Edit Rumah Sakit -->
+<div class="container petunjuk-section">
+    <form id="mcuForm">
+        <div class="mb-3 mx-3">
+            <label for="nama_mcu" class="form-label">Nama Medical Check Up (MCU)</label>
+            <input type="text" class="form-control" id="nama_mcu" name="nama_mcu">
+        </div>
+        <div class="mb-3 mx-3">
+            <label for="detail_mcu" class="form-label">Detail Medical Check Up (MCU)</label>
+            <textarea class="form-control" id="detailrs_mcu" name="detailrs_mcu"></textarea>
+        </div>
+        <div class="button-group mx-3">
+            <button type="button" class="btn btn-secondary me-2 ms-auto" onclick="saveData()">Simpan</button>
+        </div>
+    </form>
+</div>
+<!-- End Edit Rumah Sakit -->
+
+
+{% endblock %}

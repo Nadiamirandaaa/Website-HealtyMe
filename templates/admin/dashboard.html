@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+
+{% block title %}HealtyMe - Admin{% endblock %}
+{% set sidebar = True %}
+{% block content %}
+<div class="row p-3">
+    <main class="container my-5">
+        <div class="container petunjuk-section">
+            <h1>Dashboard Admin</h1>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="fas fa-users fa-3x me-4"></i>
+                            <div>
+                                <h5 class="card-title">Jumlah User</h5>
+                                <p class="card-text">{{ informasi.jumlah_user }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="fas fa-list-alt fa-3x me-4"></i>
+                            <div>
+                                <h5 class="card-title">Jumlah Antrian</h5>
+                                <p class="card-text">{{ informasi.jumlah_antrian }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-body d-flex align-items-center">
+                            <i class="fas fa-medkit fa-3x me-4"></i>
+                            <div>
+                                <h5 class="card-title">Jumlah MCU</h5>
+                                <p class="card-text">{{ informasi.mcu_jumlah }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Overview Data Users</h2>
+                <a href="{{ url_for('detail_users') }}" class="btn btn-primary btn-sm view-all-button">View All</a>
+            </div>
+
+            <div class="table-responsive mb-3">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in informasi.user[0:3] %}
+                        <tr>
+                            <td>{{ user._id }}</td>
+                            <td>{{ user.nama }}</td>
+                            <td>{{ user.jenis_kelamin }}</td>
+                            <td>{{ user.alamat }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Overview Data Antrian</h2>
+                <a href="{{ url_for('detail_antrian') }}" class="btn btn-primary btn-sm view-all-button">View All</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Nomor Antrian</th>
+                            <th>Hari/Tanggal</th>
+                            <th>Sesi</th>
+                            <th>Waktu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for antrian in informasi.antrian[0:3]%}
+                        <tr>
+                            <td>{{ antrian.nama }}</td>
+                            <td>{{ antrian.nomor_antrian }}</td>
+                            <td>{{ antrian.hari|replace('(', '')|replace(')', '') }}, {{
+                                antrian.tanggal|replace("'", '') }}</td>
+                            <td>{{ antrian.sesi }}</td>
+                            <td>{{ antrian.jam }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Overview Data MCU</h2>
+                <a href="{{ url_for('detail_mcu') }}" class="btn btn-primary btn-sm view-all-button">View All</a>
+            </div>
+
+            <div class="table-responsive mb-3">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Medical Cek Up (MCU)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            {% for mcu in informasi.mcu %}
+                            <tr>
+                                <td>{{ mcu.nama_mcu }}</td>
+                            </tr>
+                            {% endfor %}
+            
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Overview Hasil MCU</h2>
+                <a href="{{ url_for('hasil') }}" class="btn btn-primary btn-sm view-all-button">View All</a>
+            </div>
+
+            <div class="table-responsive mb-3">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Umur</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>Tanggal Pemeriksaan</th>
+                            <th>Berat Badan</th>
+                            <th>Tinggi Badan</th>
+                            <th>Tekanan Darah</th>
+                            <th>Kolesterol Total</th>
+                            <th>Kolesterol hdl</th>
+                            <th>Kolesterol ldl</th>
+                            <th>Gula Darah Puasa</th>
+                            <th>Gula Darah Sewaktu</th>
+                            <th>Gula Darah Sesudah Makan</th>
+                            <th>Warna Urine</th>
+                            <th>Kejernihan Urine</th>
+                            <th>Nitrit Urine</th>
+                            <th>Protein Urine</th>
+                            <th>Glukosa Urine</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for hasil_mcu_item in informasi.hasil_mcu %}
+                        <tr>
+                            <td>{{ hasil_mcu_item._id }}</td>
+                            <td>{{ hasil_mcu_item.nama }}</td>
+                            <td>{{ hasil_mcu_item.tanggal_lahir }}</td>
+                            <td>{{ hasil_mcu_item.umur }}</td>
+                            <td>{{ hasil_mcu_item.jenis_kelamin }}</td>
+                            <td>{{ hasil_mcu_item.alamat }}</td>
+                            <td>{{ hasil_mcu_item.tanggal_pemeriksaan }}</td>
+                            <td>{{ hasil_mcu_item.berat_badan }}</td>
+                            <td>{{ hasil_mcu_item.tinggi_badan }}</td>
+                            <td>{{ hasil_mcu_item.tekanan_darah }}</td>
+                            <td>{{ hasil_mcu_item.kolesterol_total }}</td>
+                            <td>{{ hasil_mcu_item.kolesterol_hdl }}</td>
+                            <td>{{ hasil_mcu_item.kolesterol_ldl }}</td>
+                            <td>{{ hasil_mcu_item.gula_darah_puasa }}</td>
+                            <td>{{ hasil_mcu_item.gula_darah_sewaktu }}</td>
+                            <td>{{ hasil_mcu_item.gula_darah_sesudah_makan }}</td>
+                            <td>{{ hasil_mcu_item.warna_urine }}</td>
+                            <td>{{ hasil_mcu_item.kejernihan_urine }}</td>
+                            <td>{{ hasil_mcu_item.nitrit_urine }}</td>
+                            <td>{{ hasil_mcu_item.protein_urine }}</td>
+                            <td>{{ hasil_mcu_item.glukosa_urine }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+{% endblock %}

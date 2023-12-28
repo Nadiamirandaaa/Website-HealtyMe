@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}HealtyMe - Home{% endblock %}
+{% set navbar = True %}
+{% block content %}
+
+	<!-- Start Hero -->
+	<div class="hero">
+		<div class="container text-center">
+			<div class="row justify-content-between">
+				<div class="col-lg-6 col-md-8 mx-auto">
+					<div class="intro-excerpt">
+						<h3>Layanan Untuk Mempermudah Pendaftaran MCU Online</h3>
+						<p class="mb-4">Cukup daftar online dari rumah untuk periksa hari ini, besok atau lusa dan dapat
+							melihat hasil pemeriksaan secara digital.</p>
+						<p><a href="/pendaftaranonline" class="btn btn-secondary me-2">Daftar Sekarang</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Hero -->
+
+	<!-- Start Artikel -->
+	<div class="container-fluid bg-light bg-icon my-5 py-6 petunjuk-section">
+		<div class="container">
+			<div class="row g-4">
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="bg-white text-center h-100 p-4 p-xl-5 shadow p-3 rounded">
+						<img class="img-fluid mb-4 rounded" src="/static/gambar/cek-kolesterol.jpg" alt="">
+						<h4 class="mb-3">Pemeriksaan Kolesterol</h4>
+						<a class="btn btn-secondary me-2" href="/artikelkolesterol">Read More</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+					<div class="bg-white text-center h-100 p-4 p-xl-5 shadow p-3 rounded">
+						<img class="img-fluid mb-4 rounded" src="/static/gambar/cek-gula-darah.jpg" alt="">
+						<h4 class="mb-3">Pemeriksaan Gula Darah</h4>
+						<a class="btn btn-secondary me-2" href="/artikelguladarah">Read More</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+					<div class="bg-white text-center h-100 p-4 p-xl-5 shadow p-3 rounded">
+						<img class="img-fluid mb-4 rounded" src="/static/gambar/cek-urine.jpg" alt="">
+						<h4 class="mb-3">Pemeriksaan Urine</h4>
+						<a class="btn btn-secondary me-2" href="/artikelurine">Read More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Artikel -->
+{% endblock %}
+{% set footer = True %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}HealtyMe - Admin{% endblock %}
+{% set sidebar = True %}
+{% block content %}
+<main class="container my-5">
+    <div class="petunjuk-section container-fluid">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Hasil Medical Cek Up (MCU) : {{ informasi.hasil_jumlah }}</h2>
+            <i class="fas fa-list-alt fa-3x me-4"></i>
+        </div>
+
+        <div class="table-responsive mb-3">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Umur</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>Tanggal Pemeriksaan</th>
+                        <th>Berat Badan</th>
+                        <th>Tinggi Badan</th>
+                        <th>Tekanan Darah</th>
+                        <th>Kolesterol Total</th>
+                        <th>Kolesterol hdl</th>
+                        <th>Kolesterol ldl</th>
+                        <th>Gula Darah Puasa</th>
+                        <th>Gula Darah Sewaktu</th>
+                        <th>Gula Darah Sesudah Makan</th>
+                        <th>Warna Urine</th>
+                        <th>Kejernihan Urine</th>
+                        <th>Nitrit Urine</th>
+                        <th>Protein Urine</th>
+                        <th>Glukosa Urine</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for hasil_mcu_item in informasi.hasil_mcu %}
+                    <tr>
+                        <td>{{ hasil_mcu_item._id }}</td>
+                        <td>{{ hasil_mcu_item.nama }}</td>
+                        <td>{{ hasil_mcu_item.tanggal_lahir }}</td>
+                        <td>{{ hasil_mcu_item.umur }}</td>
+                        <td>{{ hasil_mcu_item.jenis_kelamin }}</td>
+                        <td>{{ hasil_mcu_item.alamat }}</td>
+                        <td>{{ hasil_mcu_item.tanggal_pemeriksaan }}</td>
+                        <td>{{ hasil_mcu_item.berat_badan }}</td>
+                        <td>{{ hasil_mcu_item.tinggi_badan }}</td>
+                        <td>{{ hasil_mcu_item.tekanan_darah }}</td>
+                        <td>{{ hasil_mcu_item.kolesterol_total }}</td>
+                        <td>{{ hasil_mcu_item.kolesterol_hdl }}</td>
+                        <td>{{ hasil_mcu_item.kolesterol_ldl }}</td>
+                        <td>{{ hasil_mcu_item.gula_darah_puasa }}</td>
+                        <td>{{ hasil_mcu_item.gula_darah_sewaktu }}</td>
+                        <td>{{ hasil_mcu_item.gula_darah_sesudah_makan }}</td>
+                        <td>{{ hasil_mcu_item.warna_urine }}</td>
+                        <td>{{ hasil_mcu_item.kejernihan_urine }}</td>
+                        <td>{{ hasil_mcu_item.nitrit_urine }}</td>
+                        <td>{{ hasil_mcu_item.protein_urine }}</td>
+                        <td>{{ hasil_mcu_item.glukosa_urine }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <button class="btn btn-success" onclick="inputData()">
+            Input Data
+        </button>
+    </div>
+</main>
+</div>
+</div>
+
+{% endblock %}

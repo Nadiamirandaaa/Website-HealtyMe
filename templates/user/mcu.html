@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}HealtyMe - Medical Check Up{% endblock %}
+{% set navbar = True %}
+{% block content %}
+
+<h1>Hasil Pemeriksaan Umum</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama Pasien</th>
+        <th>Nomor Antrian</th>
+        <th>Tanggal Pemeriksaan</th>
+        <th>Penglihatan Warna</th>
+        <th>Catatan</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>001</td>
+        <td>2023-12-17</td>
+        <td>Normal</td>
+        <td>Tidak ada catatan khusus</td>
+      </tr>
+      <!-- Data lainnya bisa ditambahkan di sini -->
+    </tbody>
+  </table>
+
+{% endblock %}
+{% set footer = True %}

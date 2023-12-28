@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}HealtyMe - Akun{% endblock %}
+{% set navbar = True %}
+{% block content %}
+{% if informasi_mcu.hasil_mcu[0] %}
+<div class="container petunjuk-section">
+	<div class="container-fluid petunjuk-section">
+		<div class="row cardshadow p-3 rounded justify-content-center">
+			<div class="col-lg-9 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+				<form class="bg-white  h-100 p-4 p-xl-5 shadow p-3 rounded">
+					<fieldset disabled>
+						<legend class="text-center">Hasil Medical Check Up (MCU)</legend>
+						<div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Nama</label>
+							<input type="text" id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].nama}}">
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Tanggal Lahir</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].tanggal_lahir}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Umur</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].umur}}">
+							</input>
+						</div>
+						<div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Jenis Kelamin</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].jenis_kelamin}}">
+							</input>
+						</div>
+						<div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Alamat</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].alamat}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Tanggal Pemeriksaan</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].tanggal_pemeriksaan}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Berat Badan</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].berat_badan}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Tinggi Badan</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].tinggi_badan}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Tekanan Darah</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].tekanan_darah}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Kolesterol Total</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].kolesterol_total}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Kolesterol HDL (mg/dL)</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].kolesterol_hdl}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Kolesterol LDL (mg/dL)</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].kolesterol_ldl}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Gula Darah Puasa (mg/dL)</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].gula_darah_puasa}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Gula Darah Sewaktu (mg/dL)</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].gula_darah_sewaktu}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Gula Darah Sesudah Makan (mg/dL)</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].gula_darah_sesudah_makan}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Warna Urine</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].warna_urine}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Kejernihan Urine</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].kejernihan_urine}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Nitrit Urine</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].nitrit_urine}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Protein Urine</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].protein_urine}}">
+							</input>
+						</div>
+                        <div class="mb-3">
+							<label for="disabledTextInput" class="form-label">Glukosa Urine</label>
+							<input id="disabledTextInput" class="form-control" value="{{informasi_mcu.hasil_mcu[0].glukosa_urine}}">
+							</input>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+        </div>
+	</div>
+</div>
+{% else %}
+<div class="container petunjuk-section">
+    <p>Belum ada Hasil Medical Check Up (MCU).</p>
+</div>
+{% endif %}
+{% endblock %}
+{% set footer = True %}
