@@ -284,13 +284,13 @@ def pendaftaranonline():
         db.antrian.insert_one(data_pendaftaran)
 
         return jsonify({'result': 'success', 'nama': nama,
-                        'nomor_antrian': nomor_antrian_baru,
-                        'hari': hari,
-                        'tanggal': tanggal_formatted,
-                        'sesi': sesi,
-                        'jam': jam.strftime('%H:%M'),
-                        'mcu': mcu,
-                        'nomor_antrian': nomor_antrian_baru})
+            'nomor_antrian': nomor_antrian_baru,
+            'hari': hari,
+            'tanggal': tanggal_formatted,
+            'sesi': sesi,
+            'jam': jam.strftime('%H:%M'),
+            'mcu': mcu,
+            'nomor_antrian': nomor_antrian_baru})
 
 # _________________ Register Page Display ________________________________________________
 
