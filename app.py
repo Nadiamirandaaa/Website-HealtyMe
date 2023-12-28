@@ -34,8 +34,7 @@ def get_user_info():
     user_info = None
     if token_receive:
         try:
-            payload = jwt.decode(token_receive, SECRET_KEY,
-                                 algorithms=["HS256"])
+            payload = jwt.decode(token_receive, SECRET_KEY,algorithms=["HS256"])
             user_info = db.users.find_one({"nama": payload["id"]})
         except jwt.ExpiredSignatureError:
             pass
@@ -59,8 +58,7 @@ def get_admin_info():
     admininfo = None
     if token_receive:
         try:
-            payload = jwt.decode(token_receive, SECRET_KEY,
-                                 algorithms=["HS256"])
+            payload = jwt.decode(token_receive, SECRET_KEY,algorithms=["HS256"])
             admininfo = db.admin.find_one({"admin": payload["id"]})
         except jwt.ExpiredSignatureError:
             pass
@@ -170,8 +168,7 @@ def login():
         user = db.users.find_one({'nama': nama_received, 'nik': hashed_nik})
 
         if user:
-            token = jwt.encode({'id': nama_received, "exp": datetime.utcnow(
-            ) + timedelta(seconds=60 * 60 * 24)}, SECRET_KEY, algorithm='HS256')
+            token = jwt.encode({'id': nama_received, "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24)}, SECRET_KEY, algorithm='HS256')
             response = jsonify({
                 "result": "success",
                 "token": token,
@@ -250,8 +247,8 @@ def pendaftaranonline():
 
         # _________________ Antrian _________________________
         if db.antrian.count_documents({"tanggal": tanggal_formatted,
-                                       "sesi": sesi,
-                                       "mcu": mcu}) == 0:
+        "sesi": sesi,
+        "mcu": mcu}) == 0:
             nomor_antrian_baru = 1
             jam = jam_awal
         else:
@@ -259,7 +256,7 @@ def pendaftaranonline():
 
             if (last_item['tanggal'] != tanggal_formatted and
                 last_item['sesi'] != sesi and
-                    last_item['mcu'] != mcu):
+                last_item['mcu'] != mcu):
 
                 nomor_antrian_baru = 1
                 jam = jam_awal
@@ -354,9 +351,9 @@ def antrian():
     token = request.cookies.get('token')
     data_antrian = list(db.antrian.aggregate([
         {"$group": {
-            "_id": "$mcu",
-            "totalPendaftar": {"$sum": 1}
-        }}
+        "_id": "$mcu",
+        "totalPendaftar": {"$sum": 1}
+    }}
     ]))
 
     return render_template('user/antrian.html', token=token, data_antrian=data_antrian)
@@ -402,10 +399,10 @@ def akun():
         nama_pengguna = user_data.get('nama')
         nik_pengguna = user_data.get('nik')
         informasi_user = {
-            'nama': user_data.get('nama'),
-            'jenis_kelamin': user_data.get('jenis_kelamin'),
-            'alamat': user_data.get('alamat')
-        }
+        'nama': user_data.get('nama'),
+        'jenis_kelamin': user_data.get('jenis_kelamin'),
+        'alamat': user_data.get('alamat')
+    }
 
         return render_template('user/akun.html', nama=nama_pengguna, nik=nik_pengguna, user_info=user_info, informasi_user=informasi_user)
     else:
@@ -440,12 +437,10 @@ def loginAdmin():
         nama_received = request.form["nama"]
         pass_received = request.form["pass"]
 
-        admin = db.admin.find_one(
-            {'admin': nama_received, 'password': pass_received})
+        admin = db.admin.find_one({'admin': nama_received, 'password': pass_received})
 
         if admin:
-            token = jwt.encode({'id': nama_received, "exp": datetime.utcnow(
-            ) + timedelta(seconds=60 * 60 * 24)}, SECRET_KEY, algorithm='HS256')
+            token = jwt.encode({'id': nama_received, "exp": datetime.utcnow() + timedelta(seconds=60 * 60 * 24)}, SECRET_KEY, algorithm='HS256')
             response = jsonify({
                 "result": "success",
                 "token": token
@@ -495,8 +490,8 @@ def save_data():
             "user_id": payload["id"]
         }
         db.medical_checkup.insert_one(doc)
+        
         return jsonify({'message': 'Data Berhasil Disimpan!', 'success': True})
-
     except (jwt.ExpiredSignatureError, jwt.exceptions.DecodeError):
         return jsonify({'message': 'Token tidak valid!'})
 
